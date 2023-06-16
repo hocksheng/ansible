@@ -1,0 +1,15 @@
+- name: List AWS Instances
+  hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: Get AWS EC2 Facts
+      ec2_instance_facts:
+        region: ap-southeast-1
+        filters:
+          instance-state-name: running
+      register: ec2_instances
+
+    - name: Display Running Instances
+      debug:
+        msg: "Instance ID: {{ item.instance_id }}, State: {{ item.state.name }}"
+      loop: "{{ ec2_instances.instances }}"
