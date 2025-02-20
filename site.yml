@@ -1,0 +1,26 @@
+---
+
+- name: Apply RHEL9 CIS hardening
+  hosts: localhost
+  become: true
+  roles:
+      - role: "{{ playbook_dir }}"
+        rhel9cis_rule_1_8_2: false
+        rhel9cis_rule_1_8_3: false
+        rhel9cis_rule_1_8_4: false
+        rhel9cis_rule_1_8_5: false
+        rhel9cis_rule_1_8_6: false
+        rhel9cis_rule_1_8_7: false
+        rhel9cis_rule_1_8_8: false
+        rhel9cis_rule_1_8_9: false
+        rhel9cis_rule_1_8_10: false
+        rhel9cis_rule_1_9: false
+        rhel9cis_rule_1_10: false
+        rhel9cis_rule_4_2_2_1_1: false
+        rhel9cis_rule_4_2_2_1_2: false
+        rhel9cis_rule_4_2_2_1_3: false
+        rhel9cis_rule_4_2_2_1_4: false
+        rhel9cis_rule_4_2_2_5: false
+        rhel9cis_rule_5_3_4: false
+        rhel9cis_rule_5_6_6: false
+
