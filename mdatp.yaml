@@ -1,0 +1,20 @@
+---
+- name: Set EDR tag and restart mdatp
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Set EDR tag
+      command: "sudo mdatp edr tag set --name GROUP --value Tzz_Server"
+      ignore_errors: yes
+      register: result
+
+    - name: Debug output
+      debug:
+        var: result
+
+    - name: Restart mdatp service
+      service:
+        name: mdatp
+        state: restarted
+      when: result.rc == 0
